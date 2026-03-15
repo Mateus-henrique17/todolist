@@ -1,0 +1,30 @@
+/* layout geral da aplicação */
+.app {
+    min-height: 100vh;
+    background: var(--bg);
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  
+  /* contêiner principal */
+  .app-container {
+    width: 100%;
+    max-width: 420px;
+    background: var(--div-bg);
+    padding: 32px;
+    border-radius: 12px;
+  }
+  
+  /* título da aplicação */
+  .app-title {
+    margin-bottom: 24px;
+    text-align: center;
+  
+    font-family: system-ui, sans-serif;
+    font-size: 24px;
+  
+    color: var(--font-color);
+  }

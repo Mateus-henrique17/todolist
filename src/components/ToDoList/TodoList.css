@@ -1,0 +1,111 @@
+/* formulário */
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* campo de texto */
+  .todo-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--div-bg);
+    background: var(--input-bg);
+    color: var(--font-color);
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .todo-input:focus{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--div-bg);}
+  
+  /* botão adicionar */
+  .todo-button {
+    background: var(--accent);
+    color: var(--font-color);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .todo-button:hover {
+    background: var(--btn-hover);
+  }
+  
+  /* lista */
+  .todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* item */
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    color: var(--font-color);
+  }
+  
+  /* texto */
+  .todo-text {
+    cursor: pointer;
+  }
+  
+  /* agrupamento checkbox + texto */
+  .todo-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* checkbox */
+  .todo-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+  
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+  
+    background: transparent;
+  
+    cursor: pointer;
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* estado marcado */
+  .todo-checkbox:checked {
+    background: var(--accent);
+  }
+  
+  /* símbolo de check */
+  .todo-checkbox:checked::after {
+    content: "✓";
+    font-size: 12px;
+    color: var(--font-color);
+  }
+  
+  /* botão remover */
+  .todo-remove {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--btn-delete);
+  }
+  
+  .todo-remove:hover {
+    color: var(--btn-delete-hover);
+  }
+  

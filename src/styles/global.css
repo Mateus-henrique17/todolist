@@ -1,0 +1,16 @@
+:root{
+    --font-color: #fff;
+    --bg :#030A0A;
+    --div-bg:#071212;
+    --input-bg:#142424;
+    --accent:#0D946A;
+    --btn-hover:#065F46;
+    --btn-delete:#999;
+    --btn-delete-hover:#e11d48;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
