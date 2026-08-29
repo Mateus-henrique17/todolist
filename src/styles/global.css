@@ -1,14 +1,16 @@
-:root{
-    --font-color: #fff;
-    --bg :#030A0A;
-    --div-bg:#071212;
-    --input-bg:#142424;
-    --accent:#0D946A;
-    --btn-hover:#065F46;
-    --btn-delete:#999;
-    --btn-delete-hover:#e11d48;
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg-card: #ffffff;
+  --bg-item: #f8fafc;
+  --bg-item-hover: #f1f5f9;
+  --text-main: #1e293b;
+  --text-muted: #94a3b8;
+  --danger: #ef4444;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
-
 * {
     margin: 0;
     padding: 0;
