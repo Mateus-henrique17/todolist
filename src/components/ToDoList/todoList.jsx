@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { ProgressBar } from "../ProgressBar/ProgressBar.jsx";
+import { TodoForm } from "../ToDoForm/TodoForm.jsx";
+import { TodoItem } from "../ToDoItem/TodoItem.jsx";
 import "./TodoList.css";
 
 export const TodoList = () => {
@@ -8,76 +10,48 @@ export const TodoList = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
-  const [input, setInput] = useState("");
-
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.done).length;
-  function addTask(e) {
-    e.preventDefault();
 
-    if (!input.trim()) return;
-
+  const handleAddTask = (text) => {
     const newTask = {
       id: Date.now(),
-      text: input,
+      text,
       done: false,
     };
-
     setTasks([...tasks, newTask]);
-    setInput("");
-  }
+  };
 
-  function toggleTask(id) {
+  const handleToggleTask = (id) => {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task,
-      ),
+        task.id === id ? { ...task, done: !task.done } : task
+      )
     );
-  }
+  };
 
-  function deleteTask(id) {
+  const handleDeleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
-  }
+  };
 
   return (
     <div className="todo">
-      <ProgressBar total= {totalTasks} completed= {completedTasks}/>
-      <form className="todo-form" onSubmit={addTask}>
-        <input
-          className="todo-input"
-          type="text"
-          placeholder="Digite uma tarefa..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-
-        <button className="todo-button">Adicionar</button>
-      </form>
+      <ProgressBar total={totalTasks} completed={completedTasks} />
+      
+      <TodoForm onAddTask={handleAddTask} />
 
       <ul className="todo-list">
         {tasks.map((task) => (
-          <li className="todo-item" key={task.id}>
-            <div className="todo-left">
-              <input
-                type="checkbox"
-                className="todo-checkbox"
-                checked={task.done}
-                onChange={() => toggleTask(task.id)}
-              />
-
-              <span className={`todo-text ${task.done ? "completed" : ""}`}>
-                {task.text}
-              </span>
-            </div>
-
-            <button className="todo-remove" onClick={() => deleteTask(task.id)}>
-              ✕
-            </button>
-          </li>
+          <TodoItem
+            key={task.id}
+            task={task}
+            onToggle={handleToggleTask}
+            onDelete={handleDeleteTask}
+          />
         ))}
       </ul>
     </div>
