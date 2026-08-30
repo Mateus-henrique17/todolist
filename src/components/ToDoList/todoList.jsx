@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
+import { ProgressBar } from "../ProgressBar/ProgressBar.jsx";
 import "./TodoList.css";
 
 export const TodoList = () => {
-
   const [tasks, setTasks] = useState(() => {
     const stored = localStorage.getItem("tasks");
     return stored ? JSON.parse(stored) : [];
   });
-
 
   const [input, setInput] = useState("");
 
@@ -15,6 +14,8 @@ export const TodoList = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.done).length;
   function addTask(e) {
     e.preventDefault();
 
@@ -33,8 +34,8 @@ export const TodoList = () => {
   function toggleTask(id) {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task
-      )
+        task.id === id ? { ...task, done: !task.done } : task,
+      ),
     );
   }
 
@@ -44,6 +45,7 @@ export const TodoList = () => {
 
   return (
     <div className="todo">
+      <ProgressBar total= {totalTasks} completed= {completedTasks}/>
       <form className="todo-form" onSubmit={addTask}>
         <input
           className="todo-input"
@@ -80,4 +82,4 @@ export const TodoList = () => {
       </ul>
     </div>
   );
-}
+};

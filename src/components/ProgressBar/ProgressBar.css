@@ -1,0 +1,32 @@
+label[for="task-progress"] {
+  display: block;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.task-progress {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: var(--bg-item-hover); 
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.task-progress::-webkit-progress-bar {
+  background-color: var(--bg-item-hover);
+  border-radius: 6px;
+}
+
+.task-progress::-webkit-progress-value {
+  background-color: var(--primary);
+  border-radius: 6px;
+  transition: width 0.3s ease; 
+}
