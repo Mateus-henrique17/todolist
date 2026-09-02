@@ -1,4 +1,4 @@
-import "./TodoItem.css"
+import "./TodoItem.css";
 
 export const TodoItem = ({ task, onToggle, onDelete }) => {
   return (
@@ -12,6 +12,11 @@ export const TodoItem = ({ task, onToggle, onDelete }) => {
         />
         <span className={`todo-text ${task.done ? "completed" : ""}`}>
           {task.text}
+        </span>
+        <span
+        className={`todo-category`}
+        data-category={task.category}>
+          {task.category}
         </span>
       </div>
       <button className="todo-remove" onClick={() => onDelete(task.id)}>

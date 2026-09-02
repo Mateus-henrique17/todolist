@@ -44,6 +44,39 @@
   color: var(--text-muted);
 }
 
+.todo-category {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  background-color: var(--border);
+  color: var(--text-muted);
+  border-radius: 4px;
+  margin-left: auto;
+  transition: all 0.2s ease;
+}
+
+.todo-category.completed {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.todo-category[data-category="Pessoal"] {
+  background-color: #C2DFFF;
+  color: #1A4B80;
+}
+
+.todo-category[data-category="Trabalho"] {
+  background-color: #C2F0CB;
+  color: #1E5C2C;
+}
+
+.todo-category[data-category="Casa"] {
+  background-color: #FFC2D4;
+  color: #851C3B;
+}
+
 .todo-remove {
   background: transparent;
   border: none;
@@ -53,6 +86,7 @@
   padding: 4px 8px;
   border-radius: 6px;
   transition: all 0.2s ease;
+  margin-left: 12px;
 }
 
 .todo-remove:hover {

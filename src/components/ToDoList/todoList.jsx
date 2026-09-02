@@ -17,10 +17,11 @@ export const TodoList = () => {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.done).length;
 
-  const handleAddTask = (text) => {
+  const handleAddTask = (text, category) => {
     const newTask = {
       id: Date.now(),
       text,
+      category,
       done: false,
     };
     setTasks([...tasks, newTask]);
@@ -29,8 +30,8 @@ export const TodoList = () => {
   const handleToggleTask = (id) => {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task
-      )
+        task.id === id ? { ...task, done: !task.done } : task,
+      ),
     );
   };
 
@@ -39,11 +40,13 @@ export const TodoList = () => {
   };
 
   return (
-    <div className="todo">
-      <ProgressBar total={totalTasks} completed={completedTasks} />
-      
-      <TodoForm onAddTask={handleAddTask} />
+    <>
+      <div className="todo-form">
+        <ProgressBar total={totalTasks} completed={completedTasks} />
 
+        <TodoForm onAddTask={handleAddTask} />
+      </div>
+      
       <ul className="todo-list">
         {tasks.map((task) => (
           <TodoItem
@@ -54,6 +57,6 @@ export const TodoList = () => {
           />
         ))}
       </ul>
-    </div>
+    </>
   );
 };
